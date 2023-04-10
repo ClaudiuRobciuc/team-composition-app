@@ -12,6 +12,10 @@ The project .env file has been included in order to ease the starting up process
 3. Run `docker-compose up -d --build`
 4. Go to http://localhost
 
+### ER Diagram
+
+![er_signiflyers](https://user-images.githubusercontent.com/22022194/230878992-0a71ceca-a727-4230-a12c-aa850d4963b0.png)
+
 ### AWS Host
 
 The project has been hosted on AWS Elastic Container Service.
