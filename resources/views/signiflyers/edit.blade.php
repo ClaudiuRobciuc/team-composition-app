@@ -1,0 +1,112 @@
+@extends('layouts.master')
+
+@section('content')
+    <h1 style="margin: 25px 0px 25px 0px">Edit Signiflyer</h1>
+    <div class="portlet-body">
+        {!! Form::open([
+                'method' => 'POST',
+                'role' => 'form' ,
+                'class' => 'form-horizontal form-validate-jquery',
+                'id' => 'update',
+                'files' => true,
+                'url' => route('signifly.signiflyers.update', ['id' => $user->id])
+            ])
+        !!}
+        <div class="form-body">
+            <div class="form-group">
+                <label class="control-label col-md-3">First Name<span class="required"> * </span></label>
+                <div class="col-md-4">
+                    {!! Form::text(
+                            'first_name',
+                            old('first_name') ? old('first_name') : $user->first_name,
+                            ['class' => 'form-control', 'placeholder' => 'First Name', 'required' => 'true']
+                        )
+                    !!}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3">Last Name<span class="required"> * </span></label>
+                <div class="col-md-4">
+                    {!! Form::text(
+                            'last_name',
+                            old('last_name') ? old('last_name') : $user->last_name,
+                            ['class' => 'form-control', 'placeholder' => 'Last Name', 'required' => 'true']
+                        )
+                    !!}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3">Email<span class="required"> * </span></label>
+                <div class="col-md-4">
+                    {!! Form::text(
+                            'email',
+                            old('email') ? old('email') : $user->email,
+                            ['class' => 'form-control', 'placeholder' => 'Email', 'required' => 'true']
+                        )
+                    !!}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3">Phone Number<span class="required"> * </span></label>
+                <div class="col-md-4">
+                    {!! Form::text(
+                            'phone_number',
+                            old('phone_number') ? old('phone_number') : $user->phone_number,
+                            ['class' => 'form-control', 'placeholder' => 'Phone Number', 'required' => 'true']
+                        )
+                    !!}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3">Education<span class="required"> * </span></label>
+                <div class="col-md-4">
+                    {!! Form::text(
+                            'education',
+                            old('education') ? old('education') : $user->education,
+                            ['class' => 'form-control', 'placeholder' => 'Education', 'required' => 'true']
+                        )
+                    !!}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3">Job Role<span class="required"> * </span></label>
+                <div class="col-md-4">
+                    {!! Form::select(
+                        'role_id',
+                        ['' => 'Select Job Role'] + $roles,
+                        old('role_id') ? old('role_id') : ($user ? $user->role_id : ''),
+                        ['class' => 'form-control', 'required' => 'true']
+                    )
+                !!}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3">Skills<span class="required"> * </span></label>
+                <div class="col-md-4">
+                    {!! Form::textarea(
+                            'skillset',
+                            old('skillset') ? old('skillset') : $user->skillset,
+                            ['class' => 'form-control', 'placeholder' => 'Skill sets', 'required' => 'true']
+                        )
+                    !!}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3">Profile Picture</label>
+                <div class="col-md-4">
+                   {!! Form::file('file') !!}
+                </div>
+            </div>
+            <div class="form-actions" style="margin-top:20px">
+                <div class="row">
+                    <div class="col-md-2">
+                        <a href="{{ URL::previous() }}" class="btn btn-warning">Back</a>
+                    </div>
+                    <div class="col-md-10 text-right">
+                        {!! Form::submit('Update', ['class' => 'btn btn-success', 'id' => 'submitEdit']) !!}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@stop

@@ -1,0 +1,14 @@
+/node_modules
+/public/local
+/public/storage
+/storage/*.key
+/vendor
+/secrets
+.phpunit.result.cache
+npm-debug.log
+yarn-error.log
+/.idea
+/.vscode
+/.npm
+.ash_history
+.node_repl_history
